@@ -6,6 +6,7 @@ import 'package:graphql_users_admin/user/ui/screens/AddUser.dart';
 import 'package:graphql_users_admin/user/ui/widgets/DialogWidget.dart';
 
 import '../../controller/UserController.dart';
+import '../screens/ViewUser.dart';
 
 class ItemUserWidget extends StatelessWidget {
   final UserRx user;
@@ -29,7 +30,9 @@ class ItemUserWidget extends StatelessWidget {
                 ),
                 backgroundColor: Colors.white,
               ),
-              onTap: () {}),
+              onTap: () {
+                Get.to(ViewUser(userRx: user));
+              }),
           GestureDetector(
               child: CircleAvatar(
                 child: Icon(
@@ -42,6 +45,7 @@ class ItemUserWidget extends StatelessWidget {
                 mostrarDialogDobleWidget(
                     context, "Esta seguro de eliminar el cliente",
                     fIzquierda: () {
+                      print("user id "+user.id.toString());
                       userController.deleteUser(int.parse(user.id.toString()));
                     }, fBotonIDerecha: () {
                   Get.back();
@@ -56,6 +60,7 @@ class ItemUserWidget extends StatelessWidget {
                 backgroundColor: Colors.white,
               ),
               onTap: () {
+                print("user for update $user.toString()");
                 Get.to(AddUser(user: user, action: 2));
               })
         ],

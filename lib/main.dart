@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:graphql_users_admin/user/model/User.dart';
 import 'package:graphql_users_admin/user/ui/screens/AddUser.dart';
+import 'package:graphql_users_admin/user/ui/screens/ViewUser.dart';
 import 'package:graphql_users_admin/util/Injection.dart';
 import 'user/ui/pages/home.dart';
 
@@ -37,10 +38,16 @@ class MyApp extends StatelessWidget {
       ),
       home: Home(),
       getPages: [
-        GetPage(name: '/addUser', page: ()=> AddUser(
+        GetPage(
+          name: '/addUser', page: ()=> AddUser(
           user: UserRx(),
           action: 1
         )),
+        GetPage(
+          name: '/viewUser', page: ()=> ViewUser(
+            userRx: UserRx(),
+          )
+        ),
       ],
     );
   }

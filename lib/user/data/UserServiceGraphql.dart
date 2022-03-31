@@ -57,6 +57,7 @@ class UserServiceGraphql {
 
   Future<int?> updateUser(UserRx user) async {
     try {
+      print("User to update in UserServiceGrphql $user.toString()");
       var result = await _client.mutation(MutationsUser.updateUser, variables:
       {'id':int.parse(user.id.toString()),
       "object":user.toJsonGraphql(),

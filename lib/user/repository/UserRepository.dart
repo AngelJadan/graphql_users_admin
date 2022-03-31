@@ -23,6 +23,7 @@ class UserRepository{
   }
 
   Future<int?> updateUser(UserRx user) async{
+    print("User update");
     return await _userServiceGraphql.updateUser(user);
   }
 

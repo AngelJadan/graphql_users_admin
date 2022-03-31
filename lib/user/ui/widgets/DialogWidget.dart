@@ -73,7 +73,7 @@ mostrarDialogDobleWidget(BuildContext context, String mensaje,
 mostrarDialogSimpleWidget(BuildContext context, String mensaje,
     {Function? fBotonIDerecha,
       String mBotonDerecha: 'ACEPTAR',
-      String titulo: 'Importante',
+      String titulo: 'Message',
       Color color: Colors.redAccent,
       IconData icon: Icons.check}) {
   showGeneralDialog(

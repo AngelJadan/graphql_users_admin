@@ -6,7 +6,7 @@ import 'package:graphql_users_admin/user/model/User.dart';
 import '../../controller/UserController.dart';
 
 class AddUser extends StatelessWidget {
-  UserRx user = Get.find();
+  UserRx user = UserRx();
   
   int action;
 
@@ -129,7 +129,9 @@ class AddUser extends StatelessWidget {
               print("User in addUser");
               print(user.username);
               await userController.addUser(user);
+              
             } else {
+              user.id.obs.value = this.user.id;
               await userController.updateUser(user);
             }
           }
